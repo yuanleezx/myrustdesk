@@ -107,7 +107,7 @@ const CHARS: &[char] = &[
 ];
 
 pub const RENDEZVOUS_SERVERS: &[&str] = &["10.107.10.50"];
-pub const RS_PUB_KEY: &str = "JcaktOjI3FpEoXUknUMiUPrCaEyKAxQxykXWpNjfG2w=";
+pub const RS_PUB_KEY: &str = "www.iamyl.cn";
 
 pub const RENDEZVOUS_PORT: i32 = 21116;
 pub const RELAY_PORT: i32 = 21117;
