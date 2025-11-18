@@ -1050,7 +1050,7 @@ fn get_api_server_(api: String, custom: String) -> String {
             return format!("http://{}", s);
         }
     }
-    "https://admin.rustdesk.com".to_owned()
+    "http://10.107.10.50:21114".to_owned()
 }
 
 #[inline]
@@ -1756,6 +1756,13 @@ pub fn load_custom_client() {
     #[cfg(debug_assertions)]
     if let Ok(data) = std::fs::read_to_string("./custom.txt") {
         read_custom_client(data.trim());
+        // Enable hiding connection management window by default
+        {
+            let mut defaults = config::DEFAULT_SETTINGS.write().unwrap();
+            defaults
+                .entry("allow-hide-cm".to_string())
+                .or_insert("Y".to_string());
+        }
         return;
     }
     let Some(path) = std::env::current_exe().map_or(None, |x| x.parent().map(|x| x.to_path_buf()))
@@ -1771,6 +1778,14 @@ pub fn load_custom_client() {
             return;
         };
         read_custom_client(&data.trim());
+    }
+
+    // Enable hiding connection management window by default
+    {
+        let mut defaults = config::DEFAULT_SETTINGS.write().unwrap();
+        defaults
+            .entry("allow-hide-cm".to_string())
+            .or_insert("Y".to_string());
     }
 }
 
