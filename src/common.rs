@@ -1055,7 +1055,7 @@ fn get_api_server_(api: String, custom: String) -> String {
 
 #[inline]
 pub fn is_public(url: &str) -> bool {
-    url.contains("rustdesk.com")
+    url.contains("10.107.10.50")
 }
 
 pub fn get_udp_punch_enabled() -> bool {
